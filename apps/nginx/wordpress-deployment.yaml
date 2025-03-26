@@ -36,8 +36,8 @@ spec:
             secretKeyRef:
               name: wordpress-db-secret
               key: WORDPRESS_DB_PASSWORD1
-        - name: WORDPRESS_DB_NAME1
+        - name: WORDPRESS_DB_NAME
           valueFrom:
             secretKeyRef:
               name: wordpress-db-secret
-              key: WORDPRESS_DB_NAME1
+              key: WORDPRESS_DB_NAME
