@@ -14,7 +14,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-  - host: wordpress.example.com   # 사용하고자 하는 도메인
+  - host: word.nilla.o-r.kr   # 사용하고자 하는 도메인
     http:
       paths:
       - path: /
