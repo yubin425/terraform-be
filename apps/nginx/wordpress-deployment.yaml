@@ -21,23 +21,23 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: WORDPRESS_DB_HOST
+        - name: WORDPRESS_DB_HOST1
           valueFrom:
             secretKeyRef:
               name: wordpress-db-secret
-              key: WORDPRESS_DB_HOST
-        - name: WORDPRESS_DB_USER
+              key: WORDPRESS_DB_HOST1
+        - name: WORDPRESS_DB_USER1
           valueFrom:
             secretKeyRef:
               name: wordpress-db-secret
-              key: WORDPRESS_DB_USER
-        - name: WORDPRESS_DB_PASSWORD
+              key: WORDPRESS_DB_USER1
+        - name: WORDPRESS_DB_PASSWORD1
           valueFrom:
             secretKeyRef:
               name: wordpress-db-secret
-              key: WORDPRESS_DB_PASSWORD
-        - name: WORDPRESS_DB_NAME
+              key: WORDPRESS_DB_PASSWORD1
+        - name: WORDPRESS_DB_NAME1
           valueFrom:
             secretKeyRef:
               name: wordpress-db-secret
-              key: WORDPRESS_DB_NAME
+              key: WORDPRESS_DB_NAME1
