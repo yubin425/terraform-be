@@ -16,6 +16,6 @@ spec:
       containers:
       - name: backend
         # Docker Hub의 공개 이미지로 대체 (예: yourusername/backend:latest)
-        image: mushroomandu/backend:latest
+        image: mushr00mandu/backend:latest
         ports:
         - containerPort: 3000
