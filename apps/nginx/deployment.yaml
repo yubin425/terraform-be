@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        # Docker Hub의 공개 이미지로 대체 (예: yourusername/backend:latest)
+        image: mushroomandu/backend:latest
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>끝말잇기 게임</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    p {
+      text-align: center;
+      color: #555;
+    }
+    form {
+      margin-top: 20px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background: #e9ffe9;
+      border: 1px solid #b2d8b2;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>끝말잇기 게임</h1>
+    <p>이 게임은 간단한 끝말잇기 테스트입니다. 이전 단어의 마지막 글자와 새 단어의 첫 글자가 일치하는지 확인해보세요!</p>
+    <form id="gameForm">
+      <input type="text" id="previousWord" placeholder="이전 단어를 입력하세요" required>
+      <input type="text" id="newWord" placeholder="새 단어를 입력하세요" required>
+      <button type="submit">게임 시작</button>
+    </form>
+    <div class="result" id="result" style="display: none;"></div>
+  </div>
+  <script>
+    document.getElementById('gameForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const previousWord = document.getElementById('previousWord').value.trim();
+      const newWord = document.getElementById('newWord').value.trim();
+      if (!previousWord || !newWord) return;
+      
+      // 백엔드 API 호출 (실제 URL로 변경 필요)
+      fetch('http://backend-service/backend', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ previousWord, newWord })
+      })
+      .then(response => response.json())
+      .then(data => {
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = data.result;
+      })
+      .catch(error => {
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.textContent = '오류가 발생했습니다: ' + error;
+      });
+    });
+  </script>
+</body>
+</html>
