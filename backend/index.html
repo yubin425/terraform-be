@@ -75,14 +75,17 @@
     <div class="result" id="result" style="display: none;"></div>
   </div>
   <script>
+    
     document.getElementById('gameForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const previousWord = document.getElementById('previousWord').value.trim();
       const newWord = document.getElementById('newWord').value.trim();
       if (!previousWord || !newWord) return;
       
+      //
+
       // 백엔드 API 호출 (실제 URL로 변경 필요)
-      fetch('http://backend-service/backend', {
+      fetch('https://word.nilla.o-r.kr/play', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

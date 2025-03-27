@@ -1,8 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
+app.use(cors()); 
 app.use(express.json());
+
 
 // 간단한 GET 엔드포인트 (헬스 체크)
 app.get('/', (req, res) => {
